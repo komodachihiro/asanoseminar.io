@@ -601,21 +601,23 @@ letter-spacing: 1px;
 
 
   .top_container{
-    font-size: 16px;
+    font-size: 17px;
     padding-left: 18px;
     flex-wrap: wrap;     /* ← 3つ横並びが苦しいので折り返し */
+    letter-spacing: 0.02em;
+
 
   }
 
   .top_container_time{
-    font-size: 15px;
+    font-size: 19px;
   }
 
    /* 受講料＋講師名を同じ行にする */
    .top_container_text{
     display: flex;
     flex-wrap: wrap;
-    gap: 8px 14px;
+    gap: 8px 12px;
     align-items: center;
   }
 
@@ -632,9 +634,9 @@ letter-spacing: 1px;
   /* 受講料の右に講師名を合体（疑似要素） */
   .top_container_text p:nth-child(3)::after{
     content: " 講師 浅野弥生 先生";
-    margin-left: 10px;
-    font-size: 14px;
-    letter-spacing: 0.06em;
+    margin-left: 5px;
+    font-size: 19px;
+    letter-spacing: 0.02em;
     white-space: nowrap;
   }
 
@@ -756,7 +758,6 @@ letter-spacing: 1px;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin: 0 auto 34px;
     max-width: 85%;
   }
 
@@ -781,7 +782,6 @@ letter-spacing: 1px;
   }
 
   #overview .bluebox p{
-    margin: 0;
     color: #fff;
     font-weight: 700;
     font-size: 17px;
@@ -794,15 +794,15 @@ letter-spacing: 1px;
   #overview .overview_container03_text,
   #overview .overview_container04_text{
     margin: 0;
-    font-size: 24px;
-    font-weight: 800;
+    font-size: 22px;
+    font-weight: 600;
     text-align: center;
   }
 
   /* 開催日の時間だけ少し詰めたい場合 */
   #overview .overview_container02_text{
-    font-size: 20px; /* 19:30〜21:00 */
-    margin-top: -10px;
+    font-size: 19px; /* 19:30〜21:00 */
+    font-weight: 600;
   }
 
   /* 注釈 */
