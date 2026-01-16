@@ -1,0 +1,856 @@
+/* ========================
+   ベース設定
+======================== */
+
+html {
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-family: "Noto Sans JP", "M PLUS 1p", sans-serif;
+}
+
+body{
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+}
+
+img, picture{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================
+ トップ
+========================= */
+
+#top{
+  background-image: url("img/pc_01.png");
+  background-repeat: no-repeat;
+
+  /* X：右に逃がす / Y：header分だけ上へ */
+  background-position: calc(50% + 500px) top;
+  background-size: min(1920px, 85vw) auto;
+  padding-left: 100px;
+  padding-right: 100px;
+  position: relative;
+}
+
+/* デフォルト余白リセット（余白が消えない原因No.1） */
+h1, h2, p {
+  margin: 0;
+}
+
+h2{
+  text-align: center;
+  margin-top: 120px;
+  margin-bottom: 50px;
+  font-size: clamp(16px, 2.2vw, 32px);
+}
+/* headerは余白を作らない */
+header{
+  position: static;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* 固定するのは親 */
+.button_top{
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  z-index: 1000;
+}
+
+/* aは見た目だけ */
+.button_top a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 220px;
+  height: 60px;
+
+  background-color: #00ff37;
+  color: #14713b;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0em;
+
+  border-radius: 50px;
+  text-decoration: none;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.button_top a:hover{
+  background-color: #fbff07;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.button_top a:active{
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+h1{
+  padding-top: 50px;
+  line-height: 1.3;
+  letter-spacing: 0.05rem;
+  padding-bottom: 14px;
+}
+
+.h1_title {
+  font-size: clamp(16px, 2.2vw, 25px);
+}
+
+.h1_subtitle{
+  font-size: clamp(16px, 4vw, 55px);
+  font-weight: bold;
+}
+
+.br-sp{
+  display: none;
+}
+.br-pc{
+  display: inline;
+}
+
+
+
+.top_text{
+  font-size: clamp(16px, 2.2vw, 19px);
+  font-weight: bold;
+  padding-bottom: 40px;
+}
+
+.top_text02 {
+  font-size: clamp(16px, 2.2vw, 18px);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.1rem;
+  padding-bottom: 120px;
+}
+
+/* スクロール */
+.scroll_down{
+  position: fixed;
+  right: 150px;
+  bottom: 50px;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.scroll_down.is-show{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll_down a{
+  display: inline-block;
+  position: relative;
+  width: 25px;
+  padding: 10px 10px 110px;
+  color: #000;
+  font-size: 14px;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: .2em;
+  text-decoration: none;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+/* 下のライン */
+.scroll_down a:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 100px;
+  background: #ddd;
+  transform: translateX(-50%);
+}
+
+.scroll_down a:after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 100px;
+  background: #000;
+  transform: translateX(-50%);
+}
+
+/* アニメ */
+#type01 a:after{
+  animation: sdl01 1.5s cubic-bezier(1, 0, 0, 1) infinite;
+}
+
+@keyframes sdl01{
+  0%   { transform: translateX(-50%) scaleY(0); transform-origin: 50% 0; }
+  50%  { transform: translateX(-50%) scaleY(1); transform-origin: 50% 0; }
+  50.1%{ transform: translateX(-50%) scaleY(1); transform-origin: 50% 100%; }
+  100% { transform: translateX(-50%) scaleY(0); transform-origin: 50% 100%; }
+}
+
+#type01 a:after {
+  animation: sdl01 1.5s cubic-bezier(1, 0, 0, 1) infinite;
+}
+
+@keyframes sdl01 {
+  0% {
+    transform: scale(1, 0);
+    transform-origin: 0 0;
+  }
+  50% {
+    transform: scale(1, 1);
+    transform-origin: 0 0;
+  }
+  50.1% {
+    transform: scale(1, 1);
+    transform-origin: 0 100%;
+  }
+  100% {
+    transform: scale(1, 0);
+    transform-origin: 0 100%;
+  }
+}
+
+
+.top_container{
+  color: #B385DC;
+  font-size: clamp(16px, 2.2vw, 27px);
+  font-weight: 500;
+  letter-spacing: 0.08rem;
+}
+
+.top_container_time{
+  font-family: "Alata", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.top_container_text{
+  display:flex;
+  gap: 15px;
+}
+
+.top_container_text02{
+  letter-spacing: 0.14rem;
+}
+
+
+.top_container_text03{
+  font-size: clamp(16px, 2.2vw, 19px);
+}
+
+/* =========================
+ セミナーについて
+========================= */
+#explanation{
+  background-color: #0030CC;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.explanation_img{
+  display: block;
+  width: 85%;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.explanation_text{
+  display: inline-block;       /* 文字量に合わせて枠を縮める */
+  border: 2px solid #fff;      /* 白い線 */
+  border-radius: 999px;        /* 丸め（必要なら16pxなどに変更） */
+  padding: 20px 32px;          /* 内側の余白 */
+  margin-top: 30px;
+  margin-bottom: 150px;
+}
+
+.explanation_text p {
+  color: #fff;
+  font-size: clamp(16px, 2.2vw, 30px);
+  font-weight: 600;
+  
+}
+/* =========================
+ ポイント
+========================= */
+.point_img{
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* =========================
+ 講師
+========================= */
+#instructor{
+  text-align: center; /* タイトルなどは中央 */
+}
+
+/* 上の名前・写真ブロック */
+.instructor_container{
+  display: flex;
+  align-items: flex-end;
+  width: fit-content;
+  margin: 0 auto;
+  padding-bottom: 100px; /* ← 修正 */
+  gap: 30px;
+}
+
+.instructor_container img{
+  width: 260px;        /* ← ここで大きさ調整 */
+  max-width: 100%;
+  height: auto;
+}
+
+/* ▼ 説明文ブロック（ここがポイント） */
+.instructor_text{
+  max-width: 720px;     /* 読みやすい幅 */
+  margin: 0 auto;       /* 画面中央に配置 */
+  text-align: left;     /* 文字は左寄せ */
+  line-height: 1.8;
+}
+
+.instructor_name {
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.instructor_name02 {
+font-size: 1.1rem;
+font-weight: 500;
+letter-spacing: 1px;
+}
+
+.instructor_text{
+  font-size: clamp(16px, 2.2vw, 18px);
+  font-weight: 500;
+  padding-left: 100px;
+  line-height: 2;
+  letter-spacing: 3px;
+}
+/* =========================
+ 開催日時
+========================= */
+#overview{
+  text-align: center;
+  padding: 80px 16px;
+}
+
+/* 各行 共通レイアウト */
+#overview .overview_container01,
+#overview .overview_container02,
+#overview .overview_container03,
+#overview .overview_container04{
+  display: grid;
+  grid-template-columns: 120px auto; /* 左：青ラベル / 右：内容 */
+  align-items: center;
+  gap: 16px;
+
+  max-width: 520px;   /* 画像どおり中央に細く */
+  margin: 0 auto 16px;
+}
+
+/* ▼ 開催日だけ：ラベル + 日付 + 時間（3列） */
+#overview .overview_container01{
+  grid-template-columns: 140px auto auto;
+}
+
+
+/* ▼ その他：ラベル + 内容（2列） */
+#overview .overview_container02,
+#overview .overview_container03,
+#overview .overview_container04{
+  grid-template-columns: 140px auto;
+}
+
+/* 青ラベル */
+#overview .bluebox{
+  background: #0A36FF;
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 2px;
+  height: 28px;                 /* 画像っぽい高さ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#overview .bluebox p{
+  margin: 0;
+}
+
+/* 右側テキスト（太め・左寄せ） */
+#overview p{
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* 折り返し防止（画像は全部1行なので） */
+#overview .overview_container01_text,
+#overview .overview_container02_text,
+#overview .overview_container03_text,
+#overview .overview_container04_text{
+  white-space: nowrap;
+}
+
+/* 注釈：左寄せで中央配置 */
+#overview .overview_annotation{
+  max-width: 720px;
+  margin: 22px auto 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-align:center;
+  color: #111;
+}
+
+/* =========================
+ Zoomの流れ
+========================= */
+
+#zoom img {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: -20px;
+
+}
+
+/* =========================
+   Zoomボタン
+========================= */
+.button_zoom{
+  margin: 80px auto 0;
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+.button_zoom a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: min(90%, 900px);   /* 画面に応じて横幅調整 */
+  height: 96px;             /* 画像どおりの高さ */
+
+  background-color: #0A36FF;
+  color: #ffffff;
+
+  font-size: clamp(18px, 2.2vw, 32px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+
+  border-radius: 999px;     /* 完全ピル型 */
+  text-decoration: none;
+
+  box-shadow: 0 12px 30px rgba(10, 54, 255, 0.35);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+/* hover */
+.button_zoom a:hover{
+  background-color: #0029cc;
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(10, 54, 255, 0.45);
+}
+
+/* active */
+.button_zoom a:active{
+  transform: translateY(0);
+  box-shadow: 0 10px 20px rgba(10, 54, 255, 0.3);
+}
+
+/* =========================
+フッター
+========================= */
+
+#footer{
+  background-color: #0029cc;
+  color: #fff;
+  padding: 32px 400px;   /* ← 中身の余白はpaddingで */
+  margin-top: 60px;     /* ← 上だけ余白を空ける */
+  text-align: left;
+}
+
+.footer_container{
+  display: flex;
+  gap: 30px;
+  align-items: baseline; /* ← ここを変更 */
+}
+
+.company{
+  font-size: clamp(16px, 2.2vw, 24px);
+  font-weight: 500;
+}
+
+.tel{
+  font-size: clamp(16px, 2.2vw, 26px);
+  font-weight: 600;
+}
+
+.time{
+  font-size: clamp(16px, 2.2vw, 14px);
+  font-weight: 400;
+}
+
+
+/* ========================
+   スマホ用（428px以下）
+======================== */
+
+@media (max-width: 428px){
+  :root{ --sp-padding: 16px; }
+
+  section{
+    padding-left: var(--sp-padding);
+    padding-right: var(--sp-padding);
+  }
+
+  html, body{ overflow-x: hidden; }
+
+  /* -----------------------
+     TOP
+  ----------------------- */
+  #top{
+    background-image: url("img/mobile_01.png");
+    background-repeat: no-repeat;
+    background-position: center 200px;
+    background-size: 103% auto;
+
+    padding-top: 24px;
+    padding-bottom: 48px;
+    /* 左右は共通ガターに統一 */
+    padding-left: var(--sp-padding);
+    padding-right: var(--sp-padding);
+
+    position: relative;
+  }
+
+  h1{
+    padding-top: 0px;
+    padding-bottom: 12px;
+    padding-left: 10px;
+    line-height: 1.25;
+  }
+  
+
+  .h1_title{
+    font-size: clamp(16px, 5vw, 20px);
+  }
+
+  .h1_subtitle{
+    font-size: clamp(26px, 10vw, 35px);
+    letter-spacing: 0.0em;  }
+
+   
+    .br-sp{
+      display: inline;
+    }
+    .br-pc{
+      display: none;
+    }
+
+  .top_text{
+    font-size: 14px;
+    padding-bottom: 280px;
+    padding-left: 10px;
+
+    
+  }
+
+  
+
+
+  .top_text02{
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    padding-bottom: 24px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .top_text02 br{
+    display: none;
+
+  }
+  
+
+
+  .top_container{
+    font-size: 16px;
+    padding-left: 18px;
+    flex-wrap: wrap;     /* ← 3つ横並びが苦しいので折り返し */
+
+  }
+
+  .top_container_time{
+    font-size: 15px;
+  }
+
+   /* 受講料＋講師名を同じ行にする */
+   .top_container_text{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    align-items: center;
+  }
+
+  .top_container_text p{
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  /* いったん下の「講師〜」行は非表示 */
+  .top_container_text02{
+    display: none;
+  }
+
+  /* 受講料の右に講師名を合体（疑似要素） */
+  .top_container_text p:nth-child(3)::after{
+    content: " 講師 浅野弥生 先生";
+    margin-left: 10px;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .button_top{
+    position: fixed;
+    top: auto !important;        /* ← 上固定を無効化 */
+    right: auto !important;      /* ← 右固定も無効化 */
+    left: 50%;
+    bottom: max(20px, env(safe-area-inset-bottom)); /* iPhone下バー対策 */
+    transform: translateX(-50%);
+    z-index: 1000;
+    --cta-push: 0px;
+    transform: translateX(-50%) translateY(var(--cta-push));
+    transition: transform .14s ease;
+  }
+
+  .button_top a{
+    width: min(92vw, 360px);
+    height: 64px;
+    font-size: 16px;
+    border-radius: 999px;
+  }
+
+  /* スクロール表示（スマホは邪魔になりがちなので非表示推奨） */
+  .scroll_down{
+    display: none;
+  }
+
+  /* -----------------------
+     explanation
+  ----------------------- */
+  #explanation{
+    margin-top: 0;
+    padding: 24px 16px 40px;
+  }
+
+  .explanation_img{
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .explanation_text{
+    border-width: 1.5px;
+    padding: 20px 20px;
+    margin: 16px auto 0;
+    border-radius: 15px;
+    max-width: 65%;
+  }
+
+  .explanation_text p{
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* -----------------------
+     point
+  ----------------------- */
+  h2{
+    margin-top: 56px;
+    margin-bottom: 30px;
+    font-size: 24px;
+  }
+
+  .point_img{
+    width: 100%;
+    margin-top: -30px;
+  }
+
+  /* -----------------------
+     instructor
+  ----------------------- */
+  .instructor_container{
+    flex-direction: column;  /* ← 縦積み */
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .instructor_container img{
+    width: min(78%, 280px);
+  }
+
+  .instructor_name{
+    font-size: 18px;
+    margin-bottom: -10px;
+  }
+
+  .instructor_name02{
+    font-size: 14px;
+  }
+
+  .instructor_text{
+    max-width: 92%;
+    margin: 0 auto;
+    padding-left: 0;          /* ← 100pxはスマホでズレ原因 */
+    font-size: 14px;
+    line-height: 2;
+    letter-spacing: 0.06em;
+  }
+  .instructor_text br{
+    display: none;
+  }
+  
+  /* -----------------------
+     overview
+  ----------------------- */
+  #overview{
+    padding: 10px 16px;
+    text-align: center;
+  }
+
+  /* 行を縦積みに変更 */
+  #overview .overview_container01,
+  #overview .overview_container02,
+  #overview .overview_container03,
+  #overview .overview_container04{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto 34px;
+    max-width: 85%;
+  }
+
+  /* 開催日だけ：日付+時間を同じ行に */
+  #overview .overview_container01{
+    gap: 0px;
+  }
+  #overview .overview_container01_text,
+  #overview .overview_container02_text{
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  /* ラベル（青） */
+  #overview .bluebox{
+    width: 150px;              /* 画像っぽい横幅 */
+    height: 30px;              /* 高さ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0A36FF;
+  }
+
+  #overview .bluebox p{
+    margin: 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.12em;
+  }
+
+  /* 右側テキスト（中央・太字） */
+  #overview .overview_container01_text,
+  #overview .overview_container02_text,
+  #overview .overview_container03_text,
+  #overview .overview_container04_text{
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  /* 開催日の時間だけ少し詰めたい場合 */
+  #overview .overview_container02_text{
+    font-size: 20px; /* 19:30〜21:00 */
+    margin-top: -10px;
+  }
+
+  /* 注釈 */
+  #overview .overview_annotation{
+    max-width: 95%;
+    margin: 16px auto 0;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  
+  /* -----------------------
+     zoom
+  ----------------------- */
+  #zoom img{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: -30px;
+  }
+
+  .button_zoom{
+    display: none;
+  }
+
+  /* -----------------------
+     footer
+  ----------------------- */
+  #footer{
+    padding: 24px 16px;     /* ← 400px固定はスマホで崩れます */
+  }
+
+  .footer_container{
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  .company{ font-size: 18px; }
+  .tel{ font-size: 20px; }
+  .time{ font-size: 13px; }
+
+
+  .button_top.is-hide{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(12px); /* スマホ下固定のときだけ効く */
+    transition: opacity .25s ease, transform .25s ease;
+  }
+}
