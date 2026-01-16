@@ -821,8 +821,8 @@ letter-spacing: 1px;
   ----------------------- */
   #zoom img{
     width: 100%;
-    margin-bottom: 20px;
     margin-top: -30px;
+    margin-bottom: 30px;
   }
 
   .button_zoom{
@@ -833,7 +833,7 @@ letter-spacing: 1px;
      footer
   ----------------------- */
   #footer{
-    padding: 24px 16px;     /* ← 400px固定はスマホで崩れます */
+    padding: 10px 16px;     /* ← 400px固定はスマホで崩れます */
   }
 
   .footer_container{
