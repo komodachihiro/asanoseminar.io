@@ -14,6 +14,16 @@
          <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
        </head>
 
         <body>
@@ -21,8 +31,13 @@
           <section id="top">
             <header>
               <div class="button_top">
-                <a href="https://us06web.zoom.us/webinar/register/WN_szwilZ4CQACLS966tfhAMg#/registration">セミナーに参加する</a>
-              </div>
+                <a href="https://us06web.zoom.us/webinar/register/WN_szwilZ4CQACLS966tfhAMg#/registration"
+                onclick="gtag('event','cta_click',{
+                  event_category:'CTA',
+                  event_label:'top_fixed'
+                });">
+               セミナーに参加する
+             </a>              </div>
             </header>
               <h1><span class="h1_title">PMTCの悩み20を一挙解決!</span><br><span class="h1_subtitle">
                 効率も仕上がりも
@@ -118,8 +133,14 @@
               <img src="img/pc_04.png" alt="セミナー解説">
             </picture>
             <div class="button_zoom">
-              <a href="https://us06web.zoom.us/webinar/register/WN_szwilZ4CQACLS966tfhAMg#/registration">セミナーに参加する</a>
-            </div>
+              <a href="https://us06web.zoom.us/webinar/register/WN_szwilZ4CQACLS966tfhAMg#/registration"
+              onclick="gtag('event','cta_click',{
+                event_category:'CTA',
+                event_label:'zoom_section'
+              });">
+             セミナーに参加する
+           </a>
+                       </div>
           </section>
 
             <!--footer-->
